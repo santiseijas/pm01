@@ -1,0 +1,16 @@
+<ion-header> </ion-header>
+
+<ion-content>
+  <ion-grid style="height: 100%" text-center>
+    <ion-row justify-content-center align-items-center style="height: 100%; flex-direction: column">
+      <h1 no-margin no-padding>{{ textosIdioma.nombreApp }}</h1>
+      <h2 no-margin no-padding>{{ textosIdioma.bienvenido }}<br /><br /></h2>
+      <ion-button shape="round" fill="outline" (click)="presentActionSheet()">
+        Idioma
+      </ion-button>
+      <ion-button shape="round" fill="outline" (click)="handleOnClick()">{{
+        textosIdioma.iniciar
+      }}</ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>
