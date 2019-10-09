@@ -8,7 +8,8 @@ export class LoginParams extends Params {
     };
 
     public parametrosSalida = {
-        ok: false
+        ok: false,
+        cancelar: false
     };
 
     constructor() {

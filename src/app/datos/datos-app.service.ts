@@ -1,5 +1,5 @@
 import { HomeParams } from './../paginas/home/home.params';
-import { NavController } from '@ionic/angular';
+import { NavController, ActionSheetController } from '@ionic/angular';
 import { PilaParams } from './../lib/pila-params';
 import { Injectable } from '@angular/core';
 
@@ -17,7 +17,8 @@ export class DatosAppService {
   public idioma: Idioma;
   public pilaParams: PilaParams;
 
-  constructor(private navControl: NavController) {
+  constructor(private navControl: NavController,
+    public actionSheetController: ActionSheetController) {
     this.version = '1.0';
     this.idioma = Idioma.ES;
     this.pilaParams = new PilaParams(navControl);

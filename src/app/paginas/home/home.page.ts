@@ -6,9 +6,9 @@ import {
   HomeIdiomaGl
 } from './home.idioma';
 import { Component } from '@angular/core';
-import { NavController, ActionSheetController } from '@ionic/angular';
 // import { InicioPage } from '../inicio/inicio.page';
 import { DatosAppService } from 'src/app/datos/datos-app.service';
+import { LoginParams } from '../login/login.params';
 
 enum Idioma {
   ES = 'ES',
@@ -22,45 +22,39 @@ enum Idioma {
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
-  public texto: string;
-  public submitTxt: string;
+
   public nombre: string;
-  private esHola: boolean;
-  private idioma: Idioma;
+
   public textosIdioma: HomeIdioma;
-  // private inicioParams: InicioParams;
+  private loginParams: LoginParams;
 
 
   constructor(
-    private navCtrl: NavController,
-    private actionSheetController: ActionSheetController,
+
     private datosApp: DatosAppService
   ) {
-    this.texto = 'Hola mundo';
-    this.submitTxt = 'Submit';
-    this.esHola = true;
-    this.idioma = Idioma.EN;
+    this.loginParams = null;
+    this.datosApp.idioma = Idioma.ES;
     this.setIdioma();
   }
 
-  public cambiaTexto(txt: string) {
-    this.texto = txt;
+
+  public loginClick() {
+    this.loginParams = new LoginParams;
+    this.datosApp.pilaParams.push(this.loginParams);
   }
 
-  public cambia() {
-    this.esHola
-      ? ((this.texto = 'Adios'), (this.esHola = false))
-      : ((this.texto = 'Hola'), (this.esHola = true));
-    console.log(this.nombre);
-  }
-
-  public handleOnClick() {
-    // this.inicioParams = new InicioParams;
-    // this.datosApp.pilaParams.push(this.inicioParams);
+  private ionViewDidEnter() {//metodo que se autoejecuta cada vez que se vuelve a la ventana de home
+    if ((this.loginParams !== null) &&
+      ((this.loginParams.parametrosSalida.ok) ||
+        (this.loginParams.parametrosSalida.cancelar))) {
+      console.log("hemos vuelto");
+      this.loginParams = null;
+    }
   }
 
   private setIdioma() {
-    switch (this.idioma) {
+    switch (this.datosApp.idioma) {
       case Idioma.ES:
         this.textosIdioma = new HomeIdiomaEs();
         break;
@@ -76,14 +70,14 @@ export class HomePage {
   }
 
   async presentActionSheet() {
-    const actionSheet = await this.actionSheetController.create({
-      header: 'Albums',
+    const actionSheet = await this.datosApp.actionSheetController.create({
+      header: 'Idiomas',
       buttons: [
         {
           text: 'Español',
           icon: 'flag',
           handler: () => {
-            this.idioma = Idioma.ES;
+            this.datosApp.idioma = Idioma.ES;
             this.setIdioma();
           }
         },
@@ -91,7 +85,7 @@ export class HomePage {
           text: 'English',
           icon: 'flag',
           handler: () => {
-            this.idioma = Idioma.EN;
+            this.datosApp.idioma = Idioma.EN;
             this.setIdioma();
           }
         },
@@ -99,7 +93,7 @@ export class HomePage {
           text: 'Galego',
           icon: 'flag',
           handler: () => {
-            this.idioma = Idioma.GL;
+            this.datosApp.idioma = Idioma.GL;
             this.setIdioma();
           }
         }

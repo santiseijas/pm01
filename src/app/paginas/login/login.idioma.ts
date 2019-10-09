@@ -1,7 +1,7 @@
 export class LoginIdioma {
     public titulo: string;
     public nombre: string;
-    public contraseña: string;
+    public contrasena: string;
     public iniciar: string
 }
 
@@ -10,7 +10,7 @@ export class LoginIdiomaEs extends LoginIdioma {
         super();
         this.titulo = "Login";
         this.nombre = 'Usuario';
-        this.contraseña = 'Clave';
+        this.contrasena = 'Clave';
         this.iniciar = 'Iniciar'
 
     }
@@ -21,7 +21,7 @@ export class LoginIdiomaGall extends LoginIdioma {
         super();
         this.titulo = "Login";
         this.nombre = 'Usuario';
-        this.contraseña = 'Contrasinal';
+        this.contrasena = 'Contrasinal';
         this.iniciar = 'Iniciar'
 
     }
@@ -32,7 +32,7 @@ export class LoginIdiomaEn extends LoginIdioma {
         super();
         this.titulo = "Login";
         this.nombre = 'User';
-        this.contraseña = 'Password';
+        this.contrasena = 'Password';
         this.iniciar = 'Start'
 
     }
