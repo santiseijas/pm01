@@ -1,30 +1,28 @@
-<div text-center>
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons>
-        <ion-button (click)="volverClick()">
-          <ion-icon name="arrow-back"></ion-icon>
-        </ion-button>
-        <ion-title>{{textosIdioma.titulo}}</ion-title>
-      </ion-buttons>
-      <br><br>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button (click)='volverClick()'>
+          <ion-icon name="arrow-back"></ion-icon> 
+      </ion-button>
+      <ion-title>{{textosIdioma.titulo}}</ion-title>  
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
-
+<ion-content>
+  <ion-list>
       <ion-item>
-        <ion-label>
-          <ion-icon name="nombre"></ion-icon>
-        </ion-label>
-        <ion-input type="nombre" [(ngModel)]='usuario' placeholder="{{textosIdioma.nombre}}"></ion-input>
+        <ion-label position='floating'>{{textosIdioma.usuario}}</ion-label>
+        <ion-input [(ngModel)]='form.usuario'></ion-input>
       </ion-item>
-
       <ion-item>
-        <ion-label>
-          <ion-icon name="unlock"></ion-icon>
-        </ion-label>
-        <ion-input type="password" [(ngModel)]='password' placeholder="{{textosIdioma.contrasena}}"></ion-input>
+          <ion-label position='floating'>{{textosIdioma.clave}}</ion-label>
+          <ion-input type='password' [(ngModel)]='form.clave'></ion-input>
       </ion-item>
-      <ion-button>Entrar</ion-button>
+  </ion-list>
+  <ion-button shape='round' fill='outline' 
+      (click)='menuClick()'>
+      {{textosIdioma.iniciar}}
+  </ion-button>
 
-    </ion-toolbar>
-  </ion-header>
-</div>
+</ion-content>

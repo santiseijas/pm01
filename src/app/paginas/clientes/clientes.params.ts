@@ -1,5 +1,5 @@
 import { Params } from './../../lib/params';
-export class LoginParams extends Params{
+export class ClientesParams extends Params{
 
     public parametrosEntrada = {
 
@@ -11,6 +11,6 @@ export class LoginParams extends Params{
     };
 
     constructor() {
-        super('/login');
+        super('/clientes');
     }
 }

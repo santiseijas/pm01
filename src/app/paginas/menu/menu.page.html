@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button (click)='volverClick()'>
+          <ion-icon name="arrow-back"></ion-icon> 
+      </ion-button>
+      <ion-title>{{textosIdioma.titulo}}</ion-title>  
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+       <ion-item>
+          <ion-icon name="briefcase"></ion-icon>
+         <ion-button (click)='clientesClick()' fill='clear'>{{textosIdioma.clientes}}</ion-button>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="contacts"></ion-icon>
+         <ion-button fill='clear'>{{textosIdioma.trabajadores}}</ion-button>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="basket"></ion-icon>
+         <ion-button fill='clear'>{{textosIdioma.articulos}}</ion-button>
+      </ion-item>
+  </ion-list>
+</ion-content>
+

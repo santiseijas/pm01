@@ -1,9 +1,7 @@
-import { Params } from 'src/app/lib/params';
-
-export class HomeParams extends Params {
+import { Params } from './../../lib/params';
+export class HomeParams extends Params{
 
     public parametrosEntrada = {
-
 
     };
 
